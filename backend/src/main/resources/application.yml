@@ -1,0 +1,52 @@
+spring:
+  application:
+    name: ai-decisionhub-backend
+  datasource:
+    url: jdbc:h2:mem:aidecisionhub;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      timeout: 1500ms
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  health:
+    redis:
+      enabled: false
+
+app:
+  cors:
+    allowed-origin: http://localhost:3000
+  decision:
+    weights:
+      quality: 0.40
+      speed: 0.25
+      cost: 0.20
+      risk: 0.15
+    risk-threshold: 0.65
+  demo:
+    auto-approve-high-risk: true

@@ -1,0 +1,26 @@
+# Compiled class files
+*.class
+
+# Maven
+target/
+
+# IDE
+.idea
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+.next/
+build/
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.local
